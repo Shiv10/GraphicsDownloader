@@ -1,20 +1,26 @@
-const download = document.getElementById("submit");
-download.addEventListener("click", async () => {
+const downloadAll = document.getElementById("submit");
+downloadAll.addEventListener("click", async () => {
 
     let [tab] = await chrome.tabs.query({active: true, currentWindow: true});
 
     chrome.scripting.executeScript({
         target: { tabId: tab.id },
-        function: getMedia,
+        function: getAllMedia,
     });
 });
 
-const getMedia = async () => {
+const getAllMedia = async () => {
     let list = document.getElementsByTagName("img");
-    
     for(let i = 0; i<list.length; i++){
-        console.log(list[i].src);
-        console.log(list[i].src.substring(list[i].src.lastIndexOf('.')));
+        const src = list[i].src;
+        const image = await fetch(src)
+        const imageBlog = await image.blob()
+        const imageURL = URL.createObjectURL(imageBlog)
+        const link = document.createElement('a')
+        link.href = imageURL
+        link.download = src.substring(src.lastIndexOf('/'), src.lastIndexOf('.'));
+        document.body.appendChild(link)
+        link.click()
+        document.body.removeChild(link);
     }
-
 }
