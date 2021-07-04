@@ -11,6 +11,10 @@ downloadAll.addEventListener("click", async () => {
 
 const getAllMedia = async () => {
     let list = document.getElementsByTagName("img");
+    if(!list.length>0){
+        alert("There are no image elements in this page.");
+        return;
+    }
     for(let i = 0; i<list.length; i++){
         const src = list[i].src;
         const image = await fetch(src)
