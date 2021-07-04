@@ -1,0 +1,10 @@
+{
+    "name": "Graphics Downloader",
+    "description": "A chrome extension to download png, svg, jpeg, jpg files from an html doc.",
+    "version": "1.0",
+    "manifest_version": 3,
+    "action": {
+        "default_popup": "popup.html"
+    },
+    "permissions": ["storage", "activeTab", "scripting", "downloads"]
+}
