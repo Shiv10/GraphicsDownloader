@@ -1,23 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Graphics Downloader</title>
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
 </head>
+<style>
+    html,
+    body {
+        width: 15vw;
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto', sans-serif;
+    }
+
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        border-bottom: 2px solid #e6e6e7;
+        margin-bottom: 10px;
+    }
+
+    .head-img {
+        width: 30px;
+    }
+
+    .heading {
+        font-size: 1.5vw;
+        font-weight: 500;
+        text-transform: uppercase;
+        text-align: center;
+        margin-bottom: 0;
+    }
+
+    .buttons {
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        justify-content: space-around;
+        height: 250px;
+    }
+
+    .btn {
+        background-image: linear-gradient(to right, #159957 0%, #155799 51%, #159957 100%);
+        width: 7vw;
+        font-size: 0.8vw;
+        text-align: center;
+        text-transform: uppercase;
+        transition: 0.5s;
+        background-size: 200% auto;
+        color: white;
+        box-shadow: 0 0 20px #eee;
+        border-radius: 10px;
+        display: block;
+    }
+
+    .btn:hover {
+        background-position: right center;
+        color: #fff;
+        text-decoration: none;
+    }
+</style>
+
 <body>
-    <div>
-        <h2>Graphics Downloader</h2>
-        <br/>
-        <button id="submit" style="margin-bottom: 10px;">Download All</button>
-        <br/>
-        <button id="submitPng" style="margin-bottom: 10px;">Download png</button>
-        <br/>
-        <button id="submitSvg" style="margin-bottom: 10px;">Download svg</button>
-        <br/>
-        <button id="submitJpeg" style="margin-bottom: 10px;">Download jpeg and jpg</button>
-        <br/>
-        <button id="submitJfif" style="margin-bottom: 10px;">Download jfif</button>
-    </div>
+    <main class="container-fluid" aria-hidden="true">
+        <header>
+            <img class="head-img" src="48.png" alt="Graphics Downloader">
+            <button type="button" onclick="self.close()" class="btn-close" aria-label="Close"></button>
+        </header>
+        <p class="heading">Download</p>
+        <section class="buttons">
+            <button id="submit" class="btn">All Images</button>
+            <button id="submitPng" class="btn">png</button>
+            <button id="submitSvg" class="btn">svg</button>
+            <button id="submitJpeg" class="btn">jpeg/jpg</button>
+            <button id="submitJfif" class="btn">jfif</button>
+        </section>
+    </main>
     <script src="popup.js"></script>
 </body>
+
 </html>
