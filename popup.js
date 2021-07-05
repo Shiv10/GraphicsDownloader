@@ -7,7 +7,7 @@ const downloadJfif = document.getElementById("submitJfif");
 
 downloadAll.addEventListener("click", async () => {
 
-    let [tab] = await chrome.tabs.query({active: true, currentWindow: true});
+    let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
 
     chrome.scripting.executeScript({
         target: { tabId: tab.id },
@@ -17,7 +17,7 @@ downloadAll.addEventListener("click", async () => {
 
 downloadPng.addEventListener("click", async () => {
 
-    let [tab] = await chrome.tabs.query({active: true, currentWindow: true});
+    let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
 
     chrome.scripting.executeScript({
         target: { tabId: tab.id },
@@ -27,7 +27,7 @@ downloadPng.addEventListener("click", async () => {
 
 downloadSvg.addEventListener("click", async () => {
 
-    let [tab] = await chrome.tabs.query({active: true, currentWindow: true});
+    let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
 
     chrome.scripting.executeScript({
         target: { tabId: tab.id },
@@ -37,7 +37,7 @@ downloadSvg.addEventListener("click", async () => {
 
 downloadJpeg.addEventListener("click", async () => {
 
-    let [tab] = await chrome.tabs.query({active: true, currentWindow: true});
+    let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
 
     chrome.scripting.executeScript({
         target: { tabId: tab.id },
@@ -47,7 +47,7 @@ downloadJpeg.addEventListener("click", async () => {
 
 downloadJfif.addEventListener("click", async () => {
 
-    let [tab] = await chrome.tabs.query({active: true, currentWindow: true});
+    let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
 
     chrome.scripting.executeScript({
         target: { tabId: tab.id },
@@ -57,11 +57,11 @@ downloadJfif.addEventListener("click", async () => {
 
 const getAllMedia = async () => {
     let list = document.getElementsByTagName("img");
-    if(!list.length>0){
+    if (!list.length > 0) {
         alert("There are no image elements in this page.");
         return;
     }
-    for(let i = 0; i<list.length; i++){
+    for (let i = 0; i < list.length; i++) {
         const src = list[i].src;
         const image = await fetch(src)
         const imageBlog = await image.blob()
@@ -77,28 +77,28 @@ const getAllMedia = async () => {
 
 const getAllPng = async () => {
     let list = document.getElementsByTagName("img");
-    if(!list.length>0){
+    if (!list.length > 0) {
         alert("There are no image elements in this page.");
         return;
     }
 
     pngList = [];
 
-    for(let i = 0; i<list.length; i++){
+    for (let i = 0; i < list.length; i++) {
         const src = list[i].src;
         let type = src.substring(src.lastIndexOf('.'));
-        if(type.includes("png")) {
+        if (type.includes("png")) {
             pngList.push(src);
         }
     }
 
-    if(!pngList.length>0){
+    if (!pngList.length > 0) {
         alert("There are no png images on this page.");
         return;
     }
 
-    for(let i = 0; i<pngList.length; i++){
-        
+    for (let i = 0; i < pngList.length; i++) {
+
         const src = pngList[i];
         const image = await fetch(src)
         const imageBlog = await image.blob()
@@ -114,28 +114,28 @@ const getAllPng = async () => {
 
 const getAllSvg = async () => {
     let list = document.getElementsByTagName("img");
-    if(!list.length>0){
+    if (!list.length > 0) {
         alert("There are no image elements in this page.");
         return;
     }
 
     svgList = [];
 
-    for(let i = 0; i<list.length; i++){
+    for (let i = 0; i < list.length; i++) {
         const src = list[i].src;
         let type = src.substring(src.lastIndexOf('.'));
-        if(type.includes("svg")) {
+        if (type.includes("svg")) {
             svgList.push(src);
         }
     }
 
-    if(!svgList.length>0){
+    if (!svgList.length > 0) {
         alert("There are no svg images on this page.");
         return;
     }
 
-    for(let i = 0; i<svgList.length; i++){
-        
+    for (let i = 0; i < svgList.length; i++) {
+
         const src = svgList[i];
         const image = await fetch(src)
         const imageBlog = await image.blob()
@@ -152,28 +152,28 @@ const getAllSvg = async () => {
 
 const getAllJpeg = async () => {
     let list = document.getElementsByTagName("img");
-    if(!list.length>0){
+    if (!list.length > 0) {
         alert("There are no image elements in this page.");
         return;
     }
 
     jpegList = [];
 
-    for(let i = 0; i<list.length; i++){
+    for (let i = 0; i < list.length; i++) {
         const src = list[i].src;
         let type = src.substring(src.lastIndexOf('.'));
-        if(type.includes("jpeg") || type.includes("jpg")) {
+        if (type.includes("jpeg") || type.includes("jpg")) {
             jpegList.push(src);
         }
     }
 
-    if(!jpegList.length>0){
+    if (!jpegList.length > 0) {
         alert("There are no jpeg or jpg images on this page.");
         return;
     }
 
-    for(let i = 0; i<jpegList.length; i++){
-        
+    for (let i = 0; i < jpegList.length; i++) {
+
         const src = jpegList[i];
         const image = await fetch(src)
         const imageBlog = await image.blob()
@@ -189,28 +189,28 @@ const getAllJpeg = async () => {
 
 const getAllJfif = async () => {
     let list = document.getElementsByTagName("img");
-    if(!list.length>0){
+    if (!list.length > 0) {
         alert("There are no image elements in this page.");
         return;
     }
 
     jfifList = [];
 
-    for(let i = 0; i<list.length; i++){
+    for (let i = 0; i < list.length; i++) {
         const src = list[i].src;
         let type = src.substring(src.lastIndexOf('.'));
-        if(type.includes("jfif")) {
+        if (type.includes("jfif")) {
             jfifList.push(src);
         }
     }
 
-    if(!jfifList.length>0){
+    if (!jfifList.length > 0) {
         alert("There are no jfif images on this page.");
         return;
     }
 
-    for(let i = 0; i<jfifList.length; i++){
-        
+    for (let i = 0; i < jfifList.length; i++) {
+
         const src = jfifList[i];
         const image = await fetch(src)
         const imageBlog = await image.blob()
@@ -223,3 +223,6 @@ const getAllJfif = async () => {
         document.body.removeChild(link);
     }
 }
+document.getElementById("close").addEventListener("click", () => {
+    self.close();
+});
